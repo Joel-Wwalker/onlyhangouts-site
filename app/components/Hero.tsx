@@ -1,81 +1,117 @@
+const navLinks = ["Book Now", "About"];
+const vibeChips = ["Coffee chats", "City strolls", "Gallery hops", "Outdoor chill"];
+
 export default function Hero() {
   return (
-    <section className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-      <div className="space-y-6">
-        <p className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-white/70">
-          Social. Modern. Safe.
-        </p>
-        <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
-          Meet someone who makes your day feel unforgettable.
-        </h1>
-        <p className="max-w-2xl text-lg text-white/80 sm:text-xl">
-          OnlyHangouts is a creator-driven marketplace for real-world companionship—think guided hangs,
-          city walkthroughs, coffee chats, and local experiences that feel comfortable, safe, and energizing.
-        </p>
-        <div className="flex flex-wrap gap-3">
-          <a
-            href="#features"
-            className="rounded-full bg-[#FF385C] px-5 py-3 text-base font-semibold text-white shadow-lg shadow-[#FF385C]/40 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#FF385C]/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF385C]"
+    <section className="relative isolate flex flex-col overflow-hidden bg-white">
+      <div className="absolute inset-x-0 top-0 h-[70vh] bg-[linear-gradient(180deg,#0f0f0f_0%,#1a1a1a_35%,#0f0f0f_100%)]" />
+      <div
+        className="absolute inset-x-0 top-0 h-[70vh] bg-cover bg-center opacity-60"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1800&q=80')",
+        }}
+      />
+
+      <div className="relative z-10 w-full bg-[#0d0d0d]">
+        <header className="mx-auto flex w-full max-w-6xl flex-nowrap items-center justify-between px-6 py-6 sm:px-10 lg:px-12 min-h-[84px]">
+          {/* LEFT CLUSTER */}
+          <div
+            className="flex flex-1 items-center space-x-8 sm:space-x-10 lg:space-x-12"
+            style={{ columnGap: "2.5rem", marginLeft: "1rem" }}
           >
-            Get Started
-          </a>
-          <span className="flex items-center gap-2 text-sm text-white/60">
-            <span className="inline-block h-2 w-2 rounded-full bg-emerald-400" />
-            Safe, verified profiles
-          </span>
-        </div>
+            <div className="flex items-center space-x-4 flex-shrink-0" style={{ columnGap: "1rem" }}>
+              <div
+                className="flex items-center justify-center rounded-full bg-[#FF385C] text-lg font-bold text-white shadow-lg shadow-[#FF385C]/30"
+                style={{ width: "50px", height: "50px" }}
+              >
+                OH
+              </div>
+              <span className="text-lg font-semibold text-[#f5f5f5]">OnlyHangouts</span>
+              <a href="#" className="text-sm font-semibold text-[#f5f5f5]/85 transition hover:text-[#f5f5f5]">
+                About
+              </a>
+            </div>
+            <nav
+              className="hidden md:flex items-center space-x-6 sm:space-x-8 lg:space-x-10 text-sm font-semibold text-[#f5f5f5]/90 whitespace-nowrap"
+              style={{ columnGap: "2rem" }}
+            >
+              {navLinks.map((link) => (
+                <a key={link} href="#" className="px-1 transition hover:text-[#f5f5f5]">
+                  {link}
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          {/* RIGHT CLUSTER */}
+        <div
+          className="flex items-center whitespace-nowrap space-x-6 sm:space-x-8 lg:space-x-10"
+          style={{ columnGap: "1.75rem", marginRight: "1rem" }}
+        >
+            <a href="#" className="px-2 text-[#f5f5f5]/85 text-sm font-semibold transition hover:text-[#f5f5f5]">
+              Help
+            </a>
+            <a href="#" className="px-2 text-[#f5f5f5]/85 text-sm font-semibold transition hover:text-[#f5f5f5]">
+              Log in
+            </a>
+            <a
+              href="#features"
+              className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-black shadow-md shadow-black/20 transition hover:-translate-y-0.5 hover:bg-white/90"
+            >
+              Sign up
+            </a>
+          </div>
+        </header>
       </div>
 
-      <div className="relative">
-        <div className="aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 via-white/0 to-[#FF385C]/10 p-1 shadow-2xl shadow-black/40">
-          <div className="relative h-full w-full overflow-hidden rounded-[22px] bg-black">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,56,92,0.12),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%),radial-gradient(circle_at_70%_70%,rgba(255,56,92,0.18),transparent_35%)]" />
-            <div className="absolute inset-0 grid grid-rows-6 text-white/10">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="border-b border-white/5" />
-              ))}
-            </div>
-            <div className="absolute inset-0 grid grid-cols-4 text-white/10">
-              {Array.from({ length: 4 }).map((_, i) => (
-                <div key={i} className="border-l border-white/5" />
-              ))}
-            </div>
-            <div className="relative flex h-full flex-col justify-between p-6 text-white">
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-                  <span className="h-2 w-2 rounded-full bg-[#FF385C]" />
-                  Live now in your city
-                </div>
-                <h2 className="text-2xl font-semibold leading-snug">
-                  Find someone to explore a new café, museum, or park—without the awkward small talk.
-                </h2>
+      <div className="relative z-10 mx-auto flex min-h-[60vh] w-full max-w-6xl flex-col items-center justify-center px-5 pb-16 pt-10 text-center sm:px-8 lg:px-12">
+        <div className="mt-8 w-full overflow-x-auto rounded-[30px] bg-[#f3f5f8] p-3 shadow-[0_12px_35px_rgba(0,0,0,0.12)]">
+          <div className="inline-flex min-w-[980px] items-center gap-3">
+            <div className="flex min-h-[68px] flex-1 items-center gap-3 rounded-[22px] border border-[#b4c0cc] bg-white px-4 py-3 text-left shadow-inner">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#5f6f82] text-white">
+                <span className="text-lg">📍</span>
               </div>
-              <div className="space-y-3 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-                <div className="flex items-center justify-between text-sm text-white/80">
-                  <span>Curated companions</span>
-                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white">Safe</span>
+              <div className="flex flex-1 items-center gap-3">
+                <div className="flex-1 leading-tight">
+                  <p className="text-[13px] font-semibold text-[#5f6f82]">City or neighborhood</p>
+                  <p className="text-[15px] font-semibold text-[#354152]">Where do you want to hang?</p>
                 </div>
-                <div className="grid grid-cols-2 gap-3 text-sm text-white/80">
-                  <div className="rounded-xl bg-white/5 p-3">
-                    <p className="text-xs text-white/60">Today</p>
-                    <p className="font-semibold">Coffee & chat</p>
-                    <p className="text-white/60">30–60 mins</p>
-                  </div>
-                  <div className="rounded-xl bg-white/5 p-3">
-                    <p className="text-xs text-white/60">Weekend</p>
-                    <p className="font-semibold">City stroll</p>
-                    <p className="text-white/60">Local guide vibes</p>
+                <div className="h-10 w-px bg-[#d6dde5]" />
+                <div className="flex flex-col justify-center leading-tight text-left">
+                  <p className="text-[13px] font-semibold text-[#5f6f82]">Within</p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-[15px] font-semibold text-[#354152]">30 minutes</p>
+                    <span className="text-[#5f6f82]">▾</span>
                   </div>
                 </div>
-                <button className="w-full rounded-full bg-white text-sm font-semibold text-black transition hover:-translate-y-0.5 hover:bg-white/90">
-                  Browse experiences
-                </button>
               </div>
             </div>
+
+            {vibeChips.map((chip) => (
+              <button
+                key={chip}
+                className="flex min-h-[62px] min-w-[130px] items-center justify-center rounded-[20px] bg-white px-5 text-base font-semibold text-[#5f6f82] shadow-sm transition hover:-translate-y-0.5 hover:shadow"
+              >
+                {chip}
+              </button>
+            ))}
+
+            <a
+              href="#features"
+              className="flex min-h-[68px] items-center justify-center rounded-[22px] bg-[#FF385C] px-7 text-base font-semibold text-white shadow-lg shadow-[#FF385C]/30 transition hover:-translate-y-0.5 hover:bg-[#e23350]"
+            >
+              Search
+            </a>
           </div>
         </div>
-        <div className="absolute -left-6 -bottom-8 hidden h-24 w-24 rotate-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur sm:block" />
-        <div className="absolute -right-4 top-6 hidden h-12 w-12 -rotate-6 rounded-xl border border-white/10 bg-[#FF385C]/20 backdrop-blur sm:block" />
+
+        <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-white/80">
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-[#FF385C]">
+            •
+          </span>
+          <span>More filters for vibe, accessibility, and pace</span>
+        </div>
       </div>
     </section>
   );
